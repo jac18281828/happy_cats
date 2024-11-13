@@ -90,8 +90,8 @@
             "options": {
                 "cwd": "${workspaceFolder}",
                 "env": {
-                    "PROXY_ADMIN": "0xd9bf5f4C94dED9558f8385C90b4f372f709c1F4B",
-                    "HAPPY_CATS_PROXY": "0x896d6e05a6b74E0D82660426e25b789003C404Fd",
+                    "PROXY_ADMIN": "0x66142F5058122d03967D9029756caCcf29450c7B.",
+                    "HAPPY_CATS_PROXY": "0x161A73333250907C5Ce79c6D785C898Ffb2d6a85",
                     "VERIFIER_URL": "https://api-sepolia.etherscan.io/api",
                 }
             },

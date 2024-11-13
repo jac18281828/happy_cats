@@ -20,7 +20,7 @@ contract HappyCatsScript is Script {
         address admin = vm.envAddress("TOKEN_ADMIN");
         address minterAdmin = vm.envAddress("TOKEN_MINTER");
         address deploymentAdmin = msg.sender;
-        bytes memory initializationData = abi.encodeWithSelector(HappyCats.initialize.selector, deploymentAdmin);
+        bytes memory initializationData = abi.encodeWithSelector(HappyCats.initialize.selector, admin);
         vm.startBroadcast();
         address implementation = address(new HappyCats());
         TransparentUpgradeableProxy proxy = new TransparentUpgradeableProxy(implementation, admin, initializationData);
@@ -28,16 +28,16 @@ contract HappyCatsScript is Script {
         console.log("TransparentUpgradeableProxy deployed at: ", proxyAddress);
         emit HappyCatsDeployed(proxyAddress, implementation);
         HappyCats happyCats = HappyCats(proxyAddress);
+
+        happyCats.grantRole(happyCats.MINTER_ROLE(), minterAdmin);
+        console.log("Minter admin role is ", minterAdmin);                
         if (admin != deploymentAdmin) {
-            happyCats.grantRole(happyCats.DEFAULT_ADMIN_ROLE(), admin);
             happyCats.renounceRole(happyCats.DEFAULT_ADMIN_ROLE(), deploymentAdmin);
             console.log("Pool admin role is ", admin);
             console.log("Deployment role has been renounced ", deploymentAdmin);
         } else {
             console.log("Pool admin role is ", admin);
         }
-        happyCats.grantRole(happyCats.MINTER_ROLE(), minterAdmin);
-        console.log("Minter admin role is ", minterAdmin);
 
         happyCats.mint(minterAdmin, 1000 * 10 ** 18);
         vm.stopBroadcast();
