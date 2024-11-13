@@ -21,7 +21,7 @@ contract HappyCats is ERC20CappedUpgradeable, ReentrancyGuardUpgradeable, Access
         __ERC20Capped_init(INITIAL_SUPPLY);
         __ReentrancyGuard_init();
         __AccessControl_init();
-        if(!hasRole(DEFAULT_ADMIN_ROLE, _admin)) {
+        if (!hasRole(DEFAULT_ADMIN_ROLE, _admin)) {
             _grantRole(DEFAULT_ADMIN_ROLE, _admin);
         }
     }

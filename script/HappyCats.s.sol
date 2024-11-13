@@ -7,7 +7,6 @@ import {
     TransparentUpgradeableProxy
 } from "@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol";
 
-
 import {Script, console} from "forge-std/Script.sol";
 
 import {HappyCats} from "../contracts/HappyCats.sol";
@@ -30,7 +29,7 @@ contract HappyCatsScript is Script {
         HappyCats happyCats = HappyCats(proxyAddress);
 
         happyCats.grantRole(happyCats.MINTER_ROLE(), minterAdmin);
-        console.log("Minter admin role is ", minterAdmin);                
+        console.log("Minter admin role is ", minterAdmin);
         if (admin != deploymentAdmin) {
             happyCats.renounceRole(happyCats.DEFAULT_ADMIN_ROLE(), deploymentAdmin);
             console.log("Pool admin role is ", admin);
@@ -54,5 +53,4 @@ contract HappyCatsScript is Script {
         emit HappyCatsUpgraded(proxyAddress, implementation);
         vm.stopBroadcast();
     }
-
 }
