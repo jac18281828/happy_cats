@@ -1,9 +1,15 @@
+# Happy Cats!
+
+![Happy Cat](IMG_1110.jpg)
+
+This is a testing ERC-20 token for use in Sepolia Testnet. 
+
 ### Deployment Adressess
 
 | Network | Address                                    | Contract                    | Notes                      | Verified                                                                         |
 | ------- | ------------------------------------------ | --------------------------- | -------------------------- | -------------------------------------------------------------------------------- |
 | Sepolia | 0x66142F5058122d03967D9029756caCcf29450c7B | ProxyAdmin                  | Transparent Proxy Delegate | https://sepolia.etherscan.io/address/0x66142F5058122d03967D9029756caCcf29450c7B. |
-| Sepolia | 0x161A73333250907C5Ce79c6D785C898Ffb2d6a85 | TransparentUpgradeableProxy | Chicken Pool Proxy         | https://sepolia.etherscan.io/address/0x161A73333250907C5Ce79c6D785C898Ffb2d6a85  |
+| Sepolia | 0x161A73333250907C5Ce79c6D785C898Ffb2d6a85 | TransparentUpgradeableProxy | Happy Cats Proxy           | https://sepolia.etherscan.io/address/0x161A73333250907C5Ce79c6D785C898Ffb2d6a85  |
 | Sepolia | 0x2e3575c1C389a67Ac5DC418b0637389fC0F23658 | HappyCats                   | Happy Cats Implementation  | https://sepolia.etherscan.io/address/0x2e3575c1C389a67Ac5DC418b0637389fC0F23658  |
 
 
